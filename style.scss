@@ -1,0 +1,217 @@
+:root {
+  --dark-color: #333;
+  --light-color: #fff;
+  --main-color: #a9907e;
+  --second-color: #f3deba;
+  --third-color: #abc4aa;
+  --fourd-color: #675d50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  color: black;
+  user-select: none;
+}
+body {
+  min-height: 100vh;
+  min-width: 100%;
+  overflow: hidden;
+  background-color: var(--dark-color);
+  display: grid;
+  place-content: center;
+  background: linear-gradient(
+    135deg,
+    var(--main-color),
+    var(--second-color),
+    var(--third-color),
+    var(--fourd-color)
+  );
+}
+#hold {
+  position: absolute;
+  font-size: 10vw;
+  color: var(--light-color);
+  opacity: 0.4;
+  transition: 300ms all;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  animation: linear move 10s alternate infinite;
+}
+@keyframes move {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 10%;
+  }
+}
+.card {
+  backdrop-filter: blur(10px);
+  background-color: #33333324;
+  width: clamp(240px, 90vw, 550px);
+  color: var(--light-color);
+  padding: 40px 35px;
+  margin: 0 auto;
+  border-radius: 2em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .searchBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    input,
+    button {
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.245);
+    }
+    input {
+      border: none;
+      outline: none;
+      background-color: var(--light-color);
+      border-radius: 1rem;
+      opacity: 0;
+      color: var(--dark-color);
+      padding: 10px 25px;
+      height: 4rem;
+      width: 0%;
+      font-size: 1.25em;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -99;
+      transition: 200ms all;
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 1.5rem;
+      }
+      border: none;
+      outline: none;
+      background-color: var(--light-color);
+      border-radius: 50%;
+      width: 4rem;
+      height: 4rem;
+      transition: 200ms all;
+      cursor: pointer;
+      &:focus input,
+      input:focus {
+        width: 100%;
+        opacity: 1;
+        z-index: 99;
+      }
+    }
+  }
+  #root {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  #root .wether {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    img {
+      width: 12.5rem;
+    }
+    div {
+      h1 {
+        color: white;
+      }
+      h1:first-child {
+        font-size: 6rem;
+        font-weight: 500;
+        line-height: 1.12;
+      }
+      h1:last-child {
+        font-size: 3.4rem;
+        font-weight: 300;
+        line-height: 1;
+      }
+    }
+  }
+  #root .detiel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    place-items: center;
+    gap: 20px;
+    .col {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      img {
+        height: 5rem;
+        aspect-ratio: 1/1;
+      }
+      div {
+        text-align: left;
+        height: 100%;
+        span.km {
+          font-size: 1.5rem !important;
+          color: var(--light-color);
+          margin-top: 8px;
+        }
+        p {
+          color: var(--light-color);
+        }
+        p:not(.wind, .humidity) {
+          font-size: 1.5rem;
+          font-weight: 600;
+          height: 25%;
+        }
+        .wind,
+        .humidity {
+          height: 5rem;
+          display: flex;
+          align-items: center;
+          line-height: 1;
+          font-size: 3rem;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+  #hint {
+    color: var(--light-color);
+    position: absolute;
+    top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.75;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media (max-width: 500px) {
+  html {
+    font-size: 11px;
+  }
+}
+@media (max-width: 400px) {
+  html {
+    font-size: 10px;
+  }
+}
+@media (max-width: 300px) {
+  html {
+    font-size: 10px;
+  }
+}
